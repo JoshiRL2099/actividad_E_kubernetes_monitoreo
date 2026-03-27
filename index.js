@@ -14,8 +14,10 @@ app.get('/api/method3', (req, res) => {
   res.json({ message: 'Respuesta del método 3' });
 });
 
-app.listen(port, () => {
-  console.log(`Servidor en http://localhost:${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Servidor en http://localhost:${port}`);
+  });
+}
 
 module.exports = app;
